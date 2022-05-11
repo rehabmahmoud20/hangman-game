@@ -1,0 +1,272 @@
+*{box-sizing: border-box;}
+body{--main-color:#222}
+hr{border: 1px solid #eee;}
+.game-info{
+    display: flex;
+    justify-content:space-between ;
+}
+.category .game-name{
+
+    position: relative;
+   flex: 1;
+}
+.category span{
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #e91e63;
+}
+.row{
+    display: flex;
+    position: relative;
+}
+.game-draw{
+    flex:1;
+    height: 324px;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+.draw{
+    height: 280px;
+    width: 60px;
+    margin: auto;
+    position: relative;
+    border-bottom: 4px solid var(--main-color);
+    display: none;
+}
+
+.stand{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 280px;
+    width: 4px;
+    background-color: var(--main-color);
+    display: none;
+
+}
+.hang{
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    height: 4px;
+    width: 60px;
+    background-color: var(--main-color);
+    display: none;
+
+}
+.hang::before{
+    content: "";
+    position: absolute;
+    left: 100%;
+    height: 25px;
+    width: 4px;
+    background-color: var(--main-color);
+}
+.rope{
+    position: absolute;
+    top: 45px;
+    left: 100%;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 4px dashed var(--main-color);
+    display: none;
+    
+}
+.head{
+    position: absolute;
+    top: 54px;
+    left: 117%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 4px solid var(--main-color);
+    display: none;
+
+}
+.body{
+    position: absolute;
+    left: 94px;
+    top: 100px;
+    height: 150px;
+    width: 4px;
+    background-color: var(--main-color);
+    display: none;
+
+}
+.hand{display: none;}
+.hand::after,.hand::before{
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    height: 4px;
+    width:50px;
+
+}
+.hand::after{
+    left: 89px;
+    bottom: 125px;
+    transform: rotate(-45deg);
+}
+.hand::before{
+    left: 55px;
+    bottom: 124px;
+    transform: rotate(45deg);
+}
+.legs{display: none;}
+.legs::after,.legs::before{
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    height: 4px;
+    width:50px;
+}
+.legs::after{
+    bottom: 46px;
+    left: 89px;
+    transform: rotate(45deg);
+}
+.legs::before{
+    bottom: 46px;
+    left: 53px;
+    transform: rotate(-45deg);
+}
+.game-draw.wrong-1 .draw{
+    display: block;
+}
+.game-draw.wrong-2 .stand{
+    display: block;
+}
+.game-draw.wrong-3 .hang{
+    display: block;
+}
+.game-draw.wrong-4 .rope{
+    display: block;
+}
+.game-draw.wrong-5 .head{
+    display: block;
+}
+.game-draw.wrong-6 .body{
+    display: block;
+}
+.game-draw.wrong-7 .hand{
+    display: block;
+}
+.game-draw.wrong-8 .legs{
+    display: block;
+}
+.letters{
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.letters .letters-box{
+    display: flex; 
+     align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-right: 0;
+    width: 55px;
+    height: 55px;
+background-color: #009688;
+font-size: 24px;
+color: white;
+margin-right: 10px;
+margin-bottom: 10px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+text-transform: uppercase;
+}
+.letters  .letters-box.clicked{
+background-color: #222;
+opacity: 0.5;
+color: rgb(8, 8, 8);
+pointer-events: none;
+}
+.letters.finished{
+    pointer-events: none;
+
+}
+.letters-guess{
+    background-color: #f8f8f8;
+    margin: 10px auto;
+    min-height: 102px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.letters-guess span{
+    /* display: block; */
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 3px solid var(--main-color);
+    background-color: #fdfdfd;
+    transition: 3s;
+}
+.letters-guess span.space{
+    background: none;
+position: relative;
+border-bottom: 0;
+}
+.letters-guess span.space::before{
+    content: '';
+    position: absolute;
+    background-color: var(--main-color);
+    width: 20px;
+    height: 3px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+} 
+.alert{
+    width: 50%;
+    margin: auto;
+    color: #e91e63;
+    background-color: rgb(124, 114, 114);
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-transform: capitalize;
+}
+
+@media (max-width:767px){
+.row{
+    display: block;
+}
+}
+@media(min-width:768px)and (max-width:991px){
+    .container{
+        width:750px
+    }
+}
+@media(min-width:992px)and (max-width:1199px){
+    .container{
+        width:970px
+    }
+}
+@media(min-width:1200px){
+    .container{
+        width:1170px
+    }
+}
+.container{
+    padding: 0 15px;
+    margin: auto;
+
+}
